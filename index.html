@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Card Game</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎯 Memory Card Game</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#game">Game</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
+  <div class="game-container">
+    <header>
+      <h1>🎯 Memory Card Game</h1>
+      <div class="stats">
+        <span>Moves: <span id="moves">0</span></span>
+        <span>Time: <span id="timer">00:00</span></span>
+        <button id="restart">🔁 Restart</button>
+      </div>
+    </header>
+    <div class="card-grid" id="card-grid"></div>
+  </div>
 
-  <!-- Section 1: Game -->
-  <section id="game">
-    <h1>Memory Card Game</h1>
-    <div class="game-board" id="gameBoard"></div>
-  </section>
+  <!-- Modal -->
+  <div class="modal hidden" id="win-modal">
+    <div class="modal-content">
+      <h2>🏆 You Win!</h2>
+      <p>Time: <span id="final-time"></span></p>
+      <p>Moves: <span id="final-moves"></span></p>
+      <button id="play-again">Play Again</button>
+    </div>
+  </div>
 
-  <!-- Section 2: About -->
-  <section id="about">
-    <h2>About This Game</h2>
-    <p>This memory game helps improve your focus and visual memory. Flip cards to match all pairs!</p>
-  </section>
+  <!-- Sound effects -->
+  <audio id="flip-sound" src="https://www.soundjay.com/button/button-3.mp3"></audio>
+  <audio id="match-sound" src="https://www.soundjay.com/button/button-4.mp3"></audio>
+  <audio id="win-sound" src="https://www.soundjay.com/human/cheering-8.mp3"></audio>
 
-  <script src="script.js"></script>
+  <script type="module" src="game.js"></script>
 </body>
 </html>
