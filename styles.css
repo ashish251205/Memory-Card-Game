@@ -1,115 +1,70 @@
+/* styles.css */
+
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #2c3e50, #3498db);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  overflow-x: hidden;
+  padding: 0;
+  background: #f4f4f4;
 }
 
-.game-container {
-  width: 90%;
-  max-width: 650px;
-}
-
-header {
+.navbar {
+  background: #333;
+  padding: 10px 0;
   text-align: center;
-  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
 }
 
-.stats {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.card-grid {
+.navbar li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.game-board {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(4, 100px);
+  gap: 10px;
+  justify-content: center;
 }
 
 .card {
-  width: 100%;
-  aspect-ratio: 1/1;
-  background: #333;
-  border-radius: 12px;
-  perspective: 1000px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
   cursor: pointer;
+  user-select: none;
+  border-radius: 8px;
 }
 
 .card.flipped {
-  transform: rotateY(180deg);
-}
-
-.card.matched {
-  animation: flash 1s ease-in-out;
-}
-
-.card .front, .card .back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
-}
-
-.card .front {
-  background: #555;
-}
-
-.card .back {
-  background: #f39c12;
-  transform: rotateY(180deg);
-}
-
-@keyframes flash {
-  0%, 100% { box-shadow: 0 0 15px lime; }
-  50% { box-shadow: 0 0 25px yellow; }
-}
-
-/* Modal Styles */
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  height: 100%; width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: white;
-  color: black;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.modal-content h2 {
-  margin-top: 0;
-}
-
-button {
-  background: #61dafb;
+  background: #fff;
   color: #000;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .game-board {
+    grid-template-columns: repeat(2, 100px);
+  }
 }
